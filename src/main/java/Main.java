@@ -1,37 +1,31 @@
-public class Main{
-    static class Pilha{
-        int topo;
-        char[] arr;
+public class Main {
+    static class Fila{
+        int[] arr;
+        int inicio;
+        int fim;
 
-        Pilha(int tamanho){
-            topo=-1;
-            arr=new char[tamanho];
+        Fila(int tamanho){
+            arr=new int[tamanho];
+            inicio=0;
+            fim=0;
         }
-        void push(char c){
-            arr[++topo]=c;
+        void enqueue(int x){
+            arr[fim]=x;
+            x++;
         }
-        char pop(){
-             return arr[topo--];
+        int dequeue(){
+            int valor=arr[inicio];
+            inicio++;
+            return valor;
         }
         boolean isEmpty(){
-            return topo ==-1;
+            return inicio==fim;
         }
     }
-    public static String inverter(String s) {
-        Pilha p = new Pilha(s.length());
 
-        for (int i = 0; i < s.length(); i++) {
-            p.push(s.charAt(i));
-        }
-        String res = "";
-        while (!p.isEmpty()) {
-            res += p.pop();
 
-        }
-        return res;
-    }
-    public static void main(String[]args){
-        String entrada="abc";
-        System.out.println(inverter(entrada));
+
+    public static void main(String[] args){
+
     }
 }
